@@ -61,10 +61,9 @@ class GitKnowledgeRepository(KnowledgeRepository):
 
         return GitKnowledgeRepository(path)
 
-    def init(self, config='git:///.knowledge_repo_config.yml',
-             auto_create=False):
-        self.config.update_defaults(published_branch='master')
-        self.config.update_defaults(remote_name='origin')
+    def init(self, config="git:///.knowledge_repo_config.yml", auto_create=False):
+        self.config.update_defaults(published_branch="main")
+        self.config.update_defaults(remote_name="origin")
         self.auto_create = auto_create
         self.path = self.uri.replace('git://', '')
 
@@ -313,8 +312,11 @@ class GitKnowledgeRepository(KnowledgeRepository):
                         ref_head = ref
                         break
             if not ref_head:
-                ref_head = self.git_remote.refs.master \
-                    if self.git_has_remote else self.git.branches.master
+                ref_head = (
+                    self.git_remote.refs.main
+                    if self.git_has_remote
+                    else self.git.branches.main
+                )
             else:
                 logger.warning(
                     f"The branch `{ref_head.name}` already exists as upstream,"
@@ -438,9 +440,11 @@ class GitKnowledgeRepository(KnowledgeRepository):
                 f"({remote_url}). Please check the following error, "
                 f"and then try again:\n\n{err}")
 
-        logger.info(f"Pushed local branch `{branch}` to upstream branch "
-                    f"`{branch}`. Please consider starting a pull request, "
-                    "or otherwise merging into master.")
+        logger.info(
+            f"Pushed local branch `{branch}` to upstream branch "
+            f"`{branch}`. Please consider starting a pull request, "
+            "or otherwise merging into main."
+        )
 
     def _publish(self, path):  # Publish a post for general perusal
         raise NotImplementedError
