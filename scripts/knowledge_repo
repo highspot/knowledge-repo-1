@@ -77,7 +77,7 @@ parser.add_argument('--repo', action=ParseRepositories, help='The repository(ies
                     default=os.environ.get('KNOWLEDGE_REPO', None))
 parser.add_argument('--knowledge-branch', dest='knowledge_branch',
                     help='The branch of the repository from which to source the knowledge_repo tools.',
-                    default='master')
+                    default='main')
 parser.add_argument('--dev', action='store_true',
                     help='Whether to skip passing control to version of code checked out in knowledge repository.')
 parser.add_argument('--debug', action='store_true', help='Whether to enable debug mode.')

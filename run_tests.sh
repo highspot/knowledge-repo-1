@@ -36,22 +36,22 @@ git commit -m "Update repository config." &> /dev/null
 popd &> /dev/null
 
 # Add some knowledge_posts
-`dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/knowledge_repo/templates/knowledge_template.ipynb -p projects/test/ipynb_test -m "Test commit" --branch master
-`dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/knowledge_repo/templates/knowledge_template.Rmd -p projects/test/Rmd_test -m "Test commit" --branch master
-`dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/knowledge_repo/templates/knowledge_template.md -p projects/test/md_test -m "Test commit" --branch master
+`dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/knowledge_repo/templates/knowledge_template.ipynb -p projects/test/ipynb_test -m "Test commit" --branch main
+`dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/knowledge_repo/templates/knowledge_template.Rmd -p projects/test/Rmd_test -m "Test commit" --branch main
+`dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/knowledge_repo/templates/knowledge_template.md -p projects/test/md_test -m "Test commit" --branch main
 
 for post in $(ls `dirname $0`/tests/test_posts); do
     if [[ "${post}" == *.ipynb ]]; then
-        `dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/tests/test_posts/${post} -p projects/${post} -m "Test commit" --branch master;
+        `dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/tests/test_posts/${post} -p projects/${post} -m "Test commit" --branch main;
     fi;
     if [[ "${post}" == *.Rmd ]]; then
-        `dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/tests/test_posts/${post} -p projects/${post} -m "Test commit" --branch master;
+        `dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/tests/test_posts/${post} -p projects/${post} -m "Test commit" --branch main;
     fi;
     if [[ "${post}" == *.md ]]; then
-        `dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/tests/test_posts/${post} -p projects/${post} -m "Test commit" --branch master;
+        `dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/tests/test_posts/${post} -p projects/${post} -m "Test commit" --branch main;
     fi;
     if [[ "${post}" == *.org ]] ; then
-        `dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/tests/test_posts/${post} -p projects/${post} -m "Test commit" --branch master;
+        `dirname $0`/scripts/knowledge_repo --repo="git://${test_repo_path}" --dev add `dirname $0`/tests/test_posts/${post} -p projects/${post} -m "Test commit" --branch main;
     fi;
 done
 

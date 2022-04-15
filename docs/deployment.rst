@@ -68,7 +68,7 @@ whichever service you plan to use) and then running:
 .. code-block:: shell
 
   $ git remote add origin <url_of_remote_repository>
-  $ git push -u origin master
+  $ git push -u origin main
 
 Users can then clone this repository, and point their local `knowledge_repo`
 script at it using :code:`--repo <path_of_cloned_repository>`.

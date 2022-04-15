@@ -55,5 +55,5 @@ knowledge_repo --repo <repo_path> submit project/example
 
 8\. Open a pull/merge request on your branch
 
-Once ready, merge your branch into master, and your post will shortly thereafter
+Once ready, merge your branch into main, and your post will shortly thereafter
 appear in attached *Knowledge Repo* servers.
